@@ -1,0 +1,1 @@
+JRUBY_OPTS=-J-Xmx2048m
