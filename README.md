@@ -1,21 +1,9 @@
 # Logstash Plugin
 
-[![Travis Build Status](https://travis-ci.org/logstash-plugins/logstash-filter-example.svg)](https://travis-ci.org/logstash-plugins/logstash-filter-example)
-
-This is a plugin for [Logstash](https://github.com/elastic/logstash).
+This is a plugin for [Logstash](https://github.com/elastic/logstash). It integrates
+the Logstash with the [Stanford NLP library](http://nlp.stanford.edu/software)
 
 It is fully free and fully open source. The license is Apache 2.0, meaning you are pretty much free to use it however you want in whatever way.
-
-## Documentation
-
-Logstash provides infrastructure to automatically generate documentation for this plugin. We use the asciidoc format to write documentation so any comments in the source code will be first converted into asciidoc and then into html. All plugin documentation are placed under one [central location](http://www.elastic.co/guide/en/logstash/current/).
-
-- For formatting code or config example, you can use the asciidoc `[source,ruby]` directive
-- For more asciidoc formatting tips, see the excellent reference here https://github.com/elastic/docs#asciidoc-guide
-
-## Need Help?
-
-Need help? Try #logstash on freenode IRC or the https://discuss.elastic.co/c/logstash discussion forum.
 
 ## Developing
 
@@ -33,6 +21,13 @@ bundle install
 
 #### Test
 
+The Stanford NLP library relies on ***large*** (~400mb) model files stored in
+JAR files. You will need to increase the size of your Java heap to run the tests
+without crashing.
+
+```sh
+export JRUBY_OPTS="-J-Xmx2048m"
+```
 - Update your dependencies
 
 ```sh
@@ -51,7 +46,7 @@ bundle exec rspec
 
 - Edit Logstash `Gemfile` and add the local plugin path, for example:
 ```ruby
-gem "logstash-filter-awesome", :path => "/your/local/logstash-filter-awesome"
+gem "logstash-filter-stanford-nlp", :path => "/your/local/logstash-filter-nlp"
 ```
 - Install plugin
 ```sh
@@ -63,6 +58,10 @@ bin/plugin install --no-verify
 
 ```
 - Run Logstash with your plugin
+
+You may need to increase the heap size of logstash, just prepend LS_HEAP_SIZE=2048m
+to the logstash invocation.
+
 ```sh
 bin/logstash -e 'filter {awesome {}}'
 ```
