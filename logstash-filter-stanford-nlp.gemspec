@@ -11,7 +11,8 @@ Gem::Specification.new do |s|
   s.platform = 'java'
 
   # Files
-  s.files = Dir['lib/**/*','spec/**/*','vendor/**/*','*.gemspec','*.md','CONTRIBUTORS','Gemfile','LICENSE','NOTICE.TXT', 'lib/*.jar', '*file']
+  s.files =  `git ls-files -z`.split("\x0")
+
    # Tests
   s.test_files = s.files.grep(%r{^(test|spec|features)/})
 
