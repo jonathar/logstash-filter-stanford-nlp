@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://www.github.com/rahtanoj/logstash-filter-stanford-nlp"
   s.require_paths = ["lib"]
   s.platform = 'java'
+  s.post_install_message = "ATTENTION: You now need to execute - mkdir -p lib/edu/stanford/nlp/stanford-corenlp/3.6.0/ && curl http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar -o lib/edu/stanford/nlp/stanford-corenlp/3.6.0/stanford-corenlp-3.6.0-models.jar"
 
   # Files
   s.files =  `git ls-files -z`.split("\x0")
