@@ -24,5 +24,5 @@ Gem::Specification.new do |s|
   s.requirements << "jar 'com.google.protobuf:protobuf-java', '2.6.1'"
   s.add_runtime_dependency "jar-dependencies", "~> 0"
   s.add_runtime_dependency "logstash-core", ">= 2.0.0", "< 3.0.0"
-  s.add_development_dependency "logstash-devutils", "~> 0" 
+  s.add_development_dependency "logstash-devutils", "= 0.0.19" 
 end
