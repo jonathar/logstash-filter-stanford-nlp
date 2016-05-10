@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'logstash-filter-stanford-nlp'
-  s.version         = '0.0.1'
+  s.version         = '0.0.2'
   s.licenses = ['Apache License (2.0)']
   s.summary = "This filter extracts named entities from the message and adds them as attributes to the message."
   s.description     = "This gem is a Logstash plugin required to be installed on top of the Logstash core pipeline using $LS_HOME/bin/logstash-plugin install gemname. This gem is not a stand-alone program"
@@ -9,9 +9,11 @@ Gem::Specification.new do |s|
   s.homepage = "http://www.github.com/rahtanoj/logstash-filter-stanford-nlp"
   s.require_paths = ["lib"]
   s.platform = 'java'
+  s.post_install_message = "ATTENTION: You now need to execute - mkdir -p lib/edu/stanford/nlp/stanford-corenlp/3.6.0/ && curl http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar -o lib/edu/stanford/nlp/stanford-corenlp/3.6.0/stanford-corenlp-3.6.0-models.jar"
 
   # Files
-  s.files = Dir['lib/**/*','spec/**/*','vendor/**/*','*.gemspec','*.md','CONTRIBUTORS','Gemfile','LICENSE','NOTICE.TXT', 'lib/*.jar', '*file']
+  s.files =  `git ls-files -z`.split("\x0")
+
    # Tests
   s.test_files = s.files.grep(%r{^(test|spec|features)/})
 
