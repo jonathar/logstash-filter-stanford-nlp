@@ -53,9 +53,10 @@ gem "logstash-filter-stanford-nlp", :path => "/your/local/logstash-filter-nlp"
 # Logstash 2.3 and higher
 bin/logstash-plugin install --no-verify
 
-# Prior to Logstash 2.3
-bin/plugin install --no-verify
+# need to install a dependency
+ mkdir -p lib/edu/stanford/nlp/stanford-corenlp/3.6.0/ && curl http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar -o lib/edu/stanford/nlp/stanford-corenlp/3.6.0/stanford-corenlp-3.6.0-models.jar
 
+# Prior to Logstash 2.3 - not supported
 ```
 - Run Logstash with your plugin
 
@@ -63,7 +64,7 @@ You may need to increase the heap size of logstash, just prepend LS_HEAP_SIZE=20
 to the logstash invocation.
 
 ```sh
-bin/logstash -e 'filter {awesome {}}'
+bin/logstash -p lib -e 'input { stdin {} } filter { ner {} } output { stdout { codec => rubydebug } }'
 ```
 At this point any modifications to the plugin code will be applied to this local Logstash setup. After modifying the plugin, simply rerun Logstash.
 
@@ -80,9 +81,10 @@ gem build logstash-filter-awesome.gemspec
 # Logstash 2.3 and higher
 bin/logstash-plugin install --no-verify
 
-# Prior to Logstash 2.3
-bin/plugin install --no-verify
+# need to install a dependency
+mkdir -p lib/edu/stanford/nlp/stanford-corenlp/3.6.0/ && curl http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar -o lib/edu/stanford/nlp/stanford-corenlp/3.6.0/stanford-corenlp-3.6.0-models.jar
 
+# Prior to Logstash 2.3 - not supported
 ```
 - Start Logstash and proceed to test the plugin
 
