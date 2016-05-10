@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "logstash/filters/base"
 require "logstash/namespace"
-require "logstash-filter-stanford-ner_jars.rb"
+require "logstash-filter-stanford-nlp_jars.rb"
 require_jar( 'edu.stanford.nlp', 'stanford-corenlp', 'models', '3.6.0' )
 
 
