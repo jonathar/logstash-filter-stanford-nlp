@@ -66,6 +66,8 @@ INFO: Read 25 rules
 - Install dependencies
 ```sh
 bundle install
+
+curl http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar -o lib/edu/stanford/nlp/stanford-corenlp/3.6.0/stanford-corenlp-3.6.0-models.jar
 ```
 
 #### Test
