@@ -13,8 +13,7 @@ output {
   stdout { codec => rubydebug }
 }
 '
-ner plugin doesn't have a version. This plugin isn't well
- supported by the community and likely has no maintainer. {:level=>:warn}
+
 Settings: Default pipeline workers: 8
 Pipeline main started
 Jeffrey Alan Mott and Michelle Mott, individuals Dda Integrity Landscape 3756 Independence Avenue Sanger, CA 93637 CSLB#774222 Decision 04/04/2016. Aldan, Inc. P.O. Box 9428, Brea, CA 92822 CSLB #949229 Decision
@@ -39,7 +38,6 @@ INFO: Read 25 rules
     ],
            "@timestamp" => 2016-05-10T15:45:33.852Z,
              "@version" => "1",
-                 "host" => "administorsmbp2.corp.verisys.com",
             "ner.names" => [
         [0] "Jeffrey Alan Mott",
         [1] "Michelle Mott",
@@ -146,5 +144,3 @@ All contributions are welcome: ideas, patches, documentation, bug reports, compl
 Programming is not a required skill. Whatever you've seen about open source and maintainers or community members  saying "send patches or die" - you will not see that here.
 
 It is more important to the community that you are able to contribute.
-
-For more information about contributing, see the [CONTRIBUTING](https://github.com/elastic/logstash/blob/master/CONTRIBUTING.md) file.
